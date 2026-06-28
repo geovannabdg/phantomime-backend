@@ -7,6 +7,30 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const MASTER_PASSWORD = "662607004";
+
+
+app.post("/admin/login", (req, res) => {
+
+    const { password } = req.body;
+
+
+    if (password === MASTER_PASSWORD) {
+
+        res.json({
+            success: true
+        });
+
+    } else {
+
+        res.json({
+            success: false
+        });
+
+    }
+
+});
+
 const DB_FILE = "db.json";
 
 
